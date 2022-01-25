@@ -1,13 +1,5 @@
 import http from "../http-client";
-
-export type QuoteType = {
-    author: string;
-    category: string;
-    title: string;
-    image_url: string;
-    used: Boolean;
-    created_at: Date;
-}
+import { QuoteType } from "../typings";
 
 const getAll = () => {
     return http.get("/quotes");
