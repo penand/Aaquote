@@ -3,6 +3,6 @@ export type QuoteType = {
     category: string;
     title: string;
     image_url: string;
-    used: Boolean;
-    created_at: Date;
+    used?: Boolean;
+    created_at?: Date;
 }
