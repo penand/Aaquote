@@ -9,26 +9,24 @@ export type QuoteType = {
     created_at: Date;
 }
 
-class DataService {
-    getAll() {
-        return http.get("/quotes");
-    };
+const getAll = () => {
+    return http.get("/quotes");
+};
 
-    get(id: string) {
-        return http.get(`/quotes/${id}`);
-    }
-
-    create(data: QuoteType) {
-        return http.post('/quotes', data);
-    }
-
-    update(id: string, data: QuoteType){
-        return http.put(`/quotes/${id}`, data);
-    }
-
-    delete(id: string){
-        return http.delete(`/quotes/${id}`);
-    }
+const get = (id: string) => {
+    return http.get(`/quotes/${id}`);
 }
 
-export default new DataService();
+const create = (data: QuoteType) => {
+    return http.post('/quotes', data);
+}
+
+const update = (id: string, data: QuoteType) => {
+    return http.put(`/quotes/${id}`, data);
+}
+
+const remove = (id: string) => {
+    return http.delete(`/quotes/${id}`);
+}
+
+export { getAll, get, create, update, remove }
