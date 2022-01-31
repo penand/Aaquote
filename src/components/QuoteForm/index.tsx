@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import { useState } from "react";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
 import { create } from "../../services/data-service";
 import { QuoteType } from "../../typings";
@@ -47,7 +47,16 @@ const QuoteForm = () => {
         <div>
             <Formik
                 initialValues={initialValues}
-                onSubmit={(values) => handleSubmit(values)}
+                onSubmit={(values, { setSubmitting, resetForm }) => {
+                    handleSubmit(values)
+                    setSubmitting(false);
+                    resetForm({ values: {
+                        author: '',
+                        category: '',
+                        title: '',
+                        image_url: ''
+                    }})
+                }}
                 validationSchema={CreateQuoteSchema}
             >{({ values, handleChange, handleBlur, errors, touched, handleSubmit, isSubmitting }) => (
                 <form onSubmit={handleSubmit}>
@@ -89,7 +98,6 @@ const QuoteForm = () => {
                     {error}
                 </form>
             )}
-                
             </Formik>
         </div>
     );
