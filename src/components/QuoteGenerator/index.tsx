@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { getAll } from "../../services/data-service";
 import { QuoteType } from "../../typings";
 
@@ -13,7 +14,6 @@ const QuoteGenerator = () => {
             console.log('ERROR: ', err);
         })
     }, []);
-
 
     const randomIndex = Math.floor(Math.random() * quotes?.length);
 
