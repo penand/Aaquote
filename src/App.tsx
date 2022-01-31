@@ -1,5 +1,3 @@
-import React from 'react';
-
 import QuoteForm from './components/QuoteForm';
 import QuoteGenerator from './components/QuoteGenerator';
 import { StyledContainer } from './style';

@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 import { create } from "../../services/data-service";
 import { QuoteType } from "../../typings";
-import { StyledError, StyledInput, StyledMicroError } from "./style";
+import { StyledButton, StyledError, StyledInput, StyledMicroError } from "./style";
 
 const initialValues: QuoteType = {
     author: '',
@@ -113,9 +113,9 @@ const QuoteForm = () => {
                             {errors.image_url && touched.image_url && errors.image_url}
                         </StyledMicroError>
                     </StyledError> 
-                    <button type='submit' disabled={isSubmitting}>
+                    <StyledButton type='submit' disabled={isSubmitting}>
                         Submit
-                    </button>
+                    </StyledButton>
                     {error}
                 </form>
             )}

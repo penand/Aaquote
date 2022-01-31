@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { getAll } from "../../services/data-service";
 import { QuoteType } from "../../typings";
+import { StyledContainer, StyledH1 } from "./style";
 
 const QuoteGenerator = () => {
     const [quotes, setQuotes] = useState<QuoteType[]>([]);
@@ -15,18 +16,18 @@ const QuoteGenerator = () => {
         })
     }, []);
 
-    const randomIndex = Math.floor(Math.random() * quotes?.length);
+    // const randomIndex = Math.floor(Math.random() * quotes?.length);
 
     return (
-        <div>
+        <StyledContainer>
             {
                 quotes.length > 0 ?
-                    <h1 color="white">
-                        {quotes[randomIndex].title}
-                    </h1>
+                    <StyledH1>
+                        {quotes[4].title}
+                    </StyledH1>
                 : null
             }
-        </div>
+        </StyledContainer>
     );
 }
 
