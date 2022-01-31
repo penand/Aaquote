@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import { create } from "../../services/data-service";
 import { QuoteType } from "../../typings";
+import { StyledError, StyledInput, StyledMicroError } from "./style";
 
 const initialValues: QuoteType = {
     author: '',
@@ -59,40 +60,60 @@ const QuoteForm = () => {
                 }}
                 validationSchema={CreateQuoteSchema}
             >{({ values, handleChange, handleBlur, errors, touched, handleSubmit, isSubmitting }) => (
-                <form onSubmit={handleSubmit}>
-                    <input
+                <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column' }}>
+                    <StyledInput
                         type='author'
                         name='author'
+                        placeholder='Author'
                         value={values.author}
                         onChange={handleChange}
                         onBlur={handleBlur}
                     />
-                    {errors.author && touched.author && errors.author}
-                    <input
+                    <StyledError>
+                        <StyledMicroError>
+                             {errors.author && touched.author && errors.author}
+                        </StyledMicroError>
+                    </StyledError> 
+                    <StyledInput
                         type='category'
                         name='category'
+                        placeholder='Category'
                         value={values.category}
                         onChange={handleChange}
                         onBlur={handleBlur}
                     />
-                    {errors.category && touched.category && errors.category}
-                    <input
+                    <StyledError>
+                        <StyledMicroError>
+                            {errors.category && touched.category && errors.category}
+                        </StyledMicroError>
+                    </StyledError> 
+                    <StyledInput
                         type='title'
                         name='title'
+                        placeholder='Quote'
                         value={values.title}
                         onChange={handleChange}
                         onBlur={handleBlur}
                     />
-                    {errors.title && touched.title && errors.title}
-                    <input
+                    <StyledError>
+                        <StyledMicroError>
+                            {errors.title && touched.title && errors.title}
+                        </StyledMicroError>
+                    </StyledError> 
+                    <StyledInput
                         type='image_url'
                         name='image_url'
+                        placeholder='Image url'
                         value={values.image_url}
                         onChange={handleChange}
                         onBlur={handleBlur}
                     />
-                    {errors.image_url && touched.image_url && errors.image_url}
-                    <button type="submit" disabled={isSubmitting}>
+                    <StyledError>
+                        <StyledMicroError>
+                            {errors.image_url && touched.image_url && errors.image_url}
+                        </StyledMicroError>
+                    </StyledError> 
+                    <button type='submit' disabled={isSubmitting}>
                         Submit
                     </button>
                     {error}
